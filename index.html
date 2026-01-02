@@ -1,282 +1,590 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Báo Cáo Hoạt Động</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Hệ thống tạo báo cáo hoạt động - Ban Hậu cần</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    
-    <style>
-        body { background-color: #f0f2f5; padding: 30px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .card { border: none; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 15px; }
-        .card-header { border-radius: 15px 15px 0 0 !important; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-        .form-label { font-weight: 600; color: #495057; font-size: 0.9rem; }
-        .section-title { border-bottom: 2px solid #e9ecef; padding-bottom: 10px; margin-bottom: 20px; color: #0d6efd; font-weight: bold; }
-        
-        /* Style cho dòng công việc */
-        .task-row { background: #fff; border: 1px solid #dee2e6; border-left: 4px solid #0d6efd; padding: 15px; border-radius: 8px; margin-bottom: 10px; transition: all 0.2s; position: relative; }
-        .task-row:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
-        /* Style cho nút xóa */
-        .btn-delete-row { color: #dc3545; cursor: pointer; transition: 0.2s; }
-        .btn-delete-row:hover { color: #bb2d3b; transform: scale(1.1); }
-        /* Ẩn nút xóa khi bị disable */
-        .btn-delete-row.disabled { display: none; }
-    </style>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-10">
-            <div class="card">
-                <div class="card-header bg-primary text-white py-3 text-center">
-                    <i class="bi bi-file-earmark-text me-2"></i>Nhập liệu Báo cáo Hoạt động
-                </div>
-                <div class="card-body p-4">
-                    <form id="reportForm">
-                        
-                        <h5 class="section-title"><i class="bi bi-person-badge me-2"></i>I. Thông tin chung</h5>
-                        <div class="row mb-3">
-                            <div class="col-md-4">
-                                <label class="form-label">Ngày báo cáo (*)</label>
-                                <input type="text" class="form-control bg-white" id="inputDate" placeholder="dd/mm/yyyy" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Họ và tên (*)</label>
-                                <input type="text" class="form-control" id="hoVaTen" placeholder="Nguyễn Văn A" required>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label">Chức vụ</label>
-                                <input type="text" class="form-control" id="chucVu" placeholder="Trưởng nhóm">
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col-md-4">
-                                <label class="form-label">Số điện thoại</label>
-                                <input type="tel" class="form-control" id="sdt" placeholder="09xxxxxxx">
-                            </div>
-                            <div class="col-md-8">
-                                <label class="form-label">Tên hoạt động (*)</label>
-                                <input type="text" class="form-control" id="tenHoatDong" placeholder="Triển khai dự án X" required>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <label class="form-label">Thời gian diễn ra (Nhập tay)</label>
-                                <input type="text" class="form-control" id="thoiGianHD" placeholder="Ví dụ: 8h00 - 17h00">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Địa điểm</label>
-                                <input type="text" class="form-control" id="diaDiemHD" placeholder="Phòng họp số 1">
-                            </div>
-                        </div>
+    <!-- Floating Navigation Bar -->
+    <nav class="floating-navbar">
+        <!-- Left: Back Link -->
+        <a href="https://bvanhhh789.github.io/report-generator/old.html" class="nav-back-link">
+            <i class="bi bi-arrow-left"></i>
+            <span class="back-text">Quay lại giao diện cũ</span>
+        </a>
 
-                        <h5 class="section-title"><i class="bi bi-list-task me-2"></i>II. Danh sách công việc</h5>
-                        <div id="taskList">
-                            </div>
-                        <button type="button" class="btn btn-outline-primary btn-sm mt-2" onclick="addTaskRow()">
-                            <i class="bi bi-plus-circle me-1"></i>Thêm dòng công việc
-                        </button>
+        <!-- Center: Clock -->
+        <div class="clock-display">
+            <div class="clock-time" id="clockTime">00:00:00</div>
+            <div class="clock-date" id="clockDate">01/01/2026</div>
+        </div>
 
-                        <h5 class="section-title mt-4"><i class="bi bi-chat-left-text me-2"></i>III. Ý kiến đóng góp</h5>
-                        <div class="mb-3">
-                            <label class="form-label">Khó khăn, vướng mắc (Nếu có)</label>
-                            <textarea class="form-control" id="khoKhan" rows="3" placeholder="Để trống nếu không có (Hệ thống sẽ tự điền dòng kẻ chấm)"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Đề xuất, kiến nghị</label>
-                            <textarea class="form-control" id="deXuat" rows="3" placeholder="Đề xuất giải pháp..."></textarea>
-                        </div>
+        <!-- Right: Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="bi bi-moon-stars-fill"></i>
+            <span class="theme-text" id="themeText">Chế độ tối</span>
+        </button>
+    </nav>
 
-                        <h5 class="section-title mt-4"><i class="bi bi-check2-square me-2"></i>IV. Tự đánh giá cá nhân</h5>
-                        <div class="d-flex gap-4 flex-wrap p-3 bg-light rounded border">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selfRating" id="rXS" value="xs">
-                                <label class="form-check-label" for="rXS">Xuất sắc</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selfRating" id="rTot" value="tot">
-                                <label class="form-check-label" for="rTot">Tốt</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selfRating" id="rKha" value="kha" checked>
-                                <label class="form-check-label" for="rKha">Khá</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selfRating" id="rDat" value="dat">
-                                <label class="form-check-label" for="rDat">Đạt</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="selfRating" id="rKDat" value="kdat">
-                                <label class="form-check-label" for="rKDat">Chưa đạt</label>
-                            </div>
-                        </div>
+    <div class="container">
+        <!-- Header Card -->
+        <div class="header-card">
+            <h1>
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Hệ thống tạo báo cáo hoạt động</span>
+            </h1>
+            <p>Ban Hậu cần - Liên Chi đoàn trường Cao đẳng nghề Bách khoa Hà Nội</p>
+        </div>
 
-                        <hr class="my-4">
-                        <button type="button" onclick="generateReport()" class="btn btn-success btn-lg w-100 fw-bold shadow">
-                            <i class="bi bi-file-earmark-word me-2"></i>XUẤT FILE BÁO CÁO (.DOCX)
-                        </button>
-                    </form>
-                </div>
+        <!-- Main Card -->
+        <div class="main-card">
+            <!-- Info Banner -->
+            <div class="info-banner">
+                <h3>
+                    <i class="bi bi-info-circle-fill"></i>
+                    Hướng dẫn sử dụng
+                </h3>
+                <p>Sử dụng biểu mẫu bên dưới để tạo nhanh Báo cáo hoạt động. Sau khi hoàn tất, nhấn nút "Xuất file báo
+                    cáo" để tải về file Word (.docx).</p>
+                <ul>
+                    <li>Các trường đánh dấu (*) là bắt buộc phải điền</li>
+                    <li>Bảng "Danh sách công việc" cho phép bạn thêm hoặc xóa dòng tùy ý</li>
+                    <li>Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật</li>
+                </ul>
             </div>
-            <p class="text-center mt-3 text-muted small">Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật.</p>
+
+            <!-- Form -->
+            <form id="reportForm">
+                <!-- Section I: Thông tin chung -->
+                <h2 class="section-title">
+                    <i class="bi bi-person-badge"></i>
+                    I. Thông tin chung
+                </h2>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Họ và tên <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="hoVaTen" placeholder="VD: Đào Ngọc Minh Tú"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Chức vụ <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="chucVu" placeholder="VD: Trưởng ban" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Số điện thoại <span class="required">*</span></label>
+                        <input type="tel" class="form-control" id="sdt" placeholder="09xxxxxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Ngày báo cáo <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="inputDate" placeholder="dd/mm/yyyy" required>
+                    </div>
+                    <div class="form-group" style="grid-column: span 2;">
+                        <label class="form-label">Tên hoạt động <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="tenHoatDong" placeholder="Triển khai dự án X"
+                            required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Thời gian diễn ra <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="thoiGianHD" placeholder="VD: 8h00 - 17h00" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Địa điểm <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="diaDiemHD" placeholder="VD: Tòa A17 Tạ Quang Bửu"
+                            required>
+                    </div>
+                </div>
+
+                <!-- Section II: Danh sách công việc -->
+                <h2 class="section-title">
+                    <i class="bi bi-list-task"></i>
+                    II. Danh sách công việc
+                </h2>
+
+                <div id="taskList" class="task-list"></div>
+
+                <button type="button" class="btn btn-outline" onclick="addTaskRow()">
+                    <i class="bi bi-plus-circle"></i>
+                    <span>Thêm dòng công việc</span>
+                </button>
+
+                <!-- Section III: Ý kiến đóng góp -->
+                <h2 class="section-title">
+                    <i class="bi bi-chat-left-text"></i>
+                    III. Ý kiến đóng góp
+                </h2>
+
+                <div class="form-group" style="margin-bottom: 1.25rem;">
+                    <label class="form-label">Khó khăn, vướng mắc (Nếu có)</label>
+                    <textarea class="form-control" id="khoKhan"
+                        placeholder="Ghi lại những khó khăn, vướng mắc trong khi thực hiện nhiệm vụ..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Đề xuất, kiến nghị</label>
+                    <textarea class="form-control" id="deXuat" placeholder="Đề xuất giải pháp..."></textarea>
+                </div>
+
+                <!-- Section IV: Tự đánh giá -->
+                <h2 class="section-title">
+                    <i class="bi bi-check2-square"></i>
+                    IV. Tự đánh giá cá nhân
+                </h2>
+
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                    Vui lòng báo cáo một cách trung thực, bởi Ban sẽ dựa vào dữ liệu tự đánh giá này làm căn cứ tính sao
+                    cho Đồng chí.
+                </p>
+
+                <div class="rating-container">
+                    <div class="radio-option">
+                        <input type="radio" name="selfRating" id="rXS" value="xs">
+                        <label for="rXS">Xuất sắc</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="selfRating" id="rTot" value="tot">
+                        <label for="rTot">Tốt</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="selfRating" id="rKha" value="kha" checked>
+                        <label for="rKha">Khá</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="selfRating" id="rDat" value="dat">
+                        <label for="rDat">Đạt</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" name="selfRating" id="rKDat" value="kdat">
+                        <label for="rKDat">Chưa đạt</label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="button" onclick="generateReport()" class="btn btn-success">
+                    <i class="bi bi-file-earmark-word"></i>
+                    <span>XUẤT FILE BÁO CÁO (.DOCX)</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <p class="footer-text">
+            <i class="bi bi-shield-check"></i>
+            Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật
+        </p>
+    </div>
+
+    <!-- Custom Validation Modal -->
+    <div class="modal-overlay" id="validationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+                <h2 class="modal-title">Vui lòng kiểm tra lại</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message" id="modalMessage">
+                    Bạn cần điền đầy đủ các trường bắt buộc trước khi xuất báo cáo.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button" onclick="closeModal()">
+                    Đã hiểu
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/pizzip@3.2.0/dist/pizzip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.37.11/docxtemplater.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script src="https://npmcdn.com/flatpickr/dist/l10n/vn.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/pizzip@3.2.0/dist/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.37.11/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/vn.js"></script>
 
-<script>
-    // --- 1. Cấu hình chọn ngày tháng (Flatpickr) ---
-    flatpickr("#inputDate", {
-        dateFormat: "d/m/Y", // Hiển thị DD/MM/YYYY
-        defaultDate: "today", // Mặc định là hôm nay
-        locale: "vn",         // Ngôn ngữ tiếng Việt
-        allowInput: true      // Cho phép gõ tay
-    });
+    <script>
+        // === DARK MODE ===
+        const html = document.documentElement;
+        const themeToggle = document.getElementById('themeToggle');
+        const themeText = document.getElementById('themeText');
 
-    // --- 2. Quản lý Bảng công việc ---
-    window.onload = function() {
-        addTaskRow(); // Luôn tạo 1 dòng đầu tiên
-    };
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
 
-    function addTaskRow() {
-        const container = document.getElementById('taskList');
-        const rowHTML = `
-            <div class="task-row row g-2 align-items-center">
-                <div class="col-md-1 text-center fw-bold text-primary stt-label">#</div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control form-control-sm task-name" placeholder="Tên công việc">
+        function toggleTheme() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = theme === 'light' ? 'bi-moon-stars-fill' : 'bi-sun-fill';
+            const text = theme === 'light' ? 'Chế độ tối' : 'Chế độ sáng';
+            themeToggle.querySelector('i').className = `bi ${icon}`;
+            themeText.textContent = text;
+        }
+
+        themeToggle.addEventListener('click', toggleTheme);
+
+
+
+        // === CLOCK ===
+        function updateClock() {
+            const now = new Date();
+
+            // Format time: HH:MM:ss
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+
+            // Format date: DD/MM/YYYY
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            const dateString = `${day}/${month}/${year}`;
+
+            // Update clock
+            document.getElementById('clockTime').textContent = timeString;
+            document.getElementById('clockDate').textContent = dateString;
+        }
+
+        // Update clock immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // === FLATPICKR ===
+        flatpickr("#inputDate", {
+            dateFormat: "d/m/Y",          // DD/MM/YYYY format
+            defaultDate: "today",
+            locale: "vn",
+            allowInput: true
+        });
+
+        // === TASK MANAGEMENT ===
+        window.onload = function () {
+            addTaskRow(); // Always create first row
+        };
+
+        function addTaskRow() {
+            const container = document.getElementById('taskList');
+            const rowHTML = `
+            <div class="task-row">
+                <div class="task-header">
+                    <div class="task-number">#</div>
+                    <button type="button" class="task-delete" onclick="deleteRow(this)" title="Xóa dòng này">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
                 </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control form-control-sm task-time" placeholder="Thời gian">
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control form-control-sm task-result" placeholder="Kết quả">
-                </div>
-                <div class="col-md-2">
-                    <input type="text" class="form-control form-control-sm task-note" placeholder="Ghi chú">
-                </div>
-                <div class="col-md-1 text-center">
-                    <i class="bi bi-trash3-fill btn-delete-row" onclick="deleteRow(this)" title="Xóa dòng này"></i>
+                <div class="task-fields">
+                    <div class="form-group">
+                        <input type="text" class="form-control task-name" placeholder="Tên công việc" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control task-time" placeholder="Thời gian" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control task-result" placeholder="Kết quả" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control task-note" placeholder="Ghi chú">
+                    </div>
                 </div>
             </div>
         `;
-        container.insertAdjacentHTML('beforeend', rowHTML);
-        updateUI(); // Cập nhật lại STT và nút xóa
-    }
+            container.insertAdjacentHTML('beforeend', rowHTML);
+            updateUI();
+        }
 
-    // Hàm xóa dòng
-    function deleteRow(btn) {
-        const row = btn.closest('.task-row');
-        row.remove();
-        updateUI(); // Cập nhật lại sau khi xóa
-    }
+        function deleteRow(btn) {
+            const row = btn.closest('.task-row');
+            row.remove();
+            updateUI();
+        }
 
-    // Hàm cập nhật giao diện (STT và Ẩn/Hiện nút xóa)
-    function updateUI() {
-        const rows = document.querySelectorAll('.task-row');
-        
-        rows.forEach((row, index) => {
-            // 1. Cập nhật số thứ tự (STT)
-            row.querySelector('.stt-label').textContent = `#${index + 1}`;
-            
-            // 2. Xử lý nút xóa
-            const deleteBtn = row.querySelector('.btn-delete-row');
-            if (rows.length === 1) {
-                // Nếu chỉ còn 1 dòng -> Ẩn nút xóa
-                deleteBtn.classList.add('disabled');
+        function updateUI() {
+            const rows = document.querySelectorAll('.task-row');
+
+            rows.forEach((row, index) => {
+                row.querySelector('.task-number').textContent = `#${index + 1}`;
+
+                const deleteBtn = row.querySelector('.task-delete');
+                if (rows.length === 1) {
+                    deleteBtn.classList.add('disabled');
+                } else {
+                    deleteBtn.classList.remove('disabled');
+                }
+            });
+        }
+
+        // === HELPER FUNCTIONS ===
+        function handleEmptyText(textValue) {
+            if (textValue && textValue.trim() !== "") return textValue;
+            const dots = ".....................................................................................................................................";
+            return `${dots}\n${dots}\n${dots}`;
+        }
+
+        function getRatingMap() {
+            const checkedSym = "☑";
+            const uncheckedSym = "☐";
+            const selected = document.querySelector('input[name="selfRating"]:checked')?.value || "";
+            return {
+                c_xs: selected === 'xs' ? checkedSym : uncheckedSym,
+                c_t: selected === 'tot' ? checkedSym : uncheckedSym,
+                c_k: selected === 'kha' ? checkedSym : uncheckedSym,
+                c_d: selected === 'dat' ? checkedSym : uncheckedSym,
+                c_cd: selected === 'kdat' ? checkedSym : uncheckedSym,
+            };
+        }
+
+        function xoaDauTiengViet(str) {
+            if (!str) return "";
+            str = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            str = str.replace(/đ/g, "d").replace(/Đ/g, "D");
+            return str;
+        }
+
+        // === VALIDATION ===
+        function validateForm() {
+            // Clear previous errors
+            document.querySelectorAll('.form-control').forEach(el => el.classList.remove('error'));
+
+            let isValid = true;
+            let errorMessages = [];
+
+            // 1. Validate Section I: Thông tin chung
+            const requiredFields = [
+                { id: 'hoVaTen', name: 'Họ và tên' },
+                { id: 'chucVu', name: 'Chức vụ' },
+                { id: 'sdt', name: 'Số điện thoại' },
+                { id: 'inputDate', name: 'Ngày báo cáo' },
+                { id: 'tenHoatDong', name: 'Tên hoạt động' },
+                { id: 'thoiGianHD', name: 'Thời gian diễn ra' },
+                { id: 'diaDiemHD', name: 'Địa điểm' }
+            ];
+
+            requiredFields.forEach(field => {
+                const element = document.getElementById(field.id);
+                if (!element.value.trim()) {
+                    element.classList.add('error');
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                errorMessages.push('Vui lòng điền đầy đủ thông tin trong phần "Thông tin chung".');
+            }
+
+            // 2. Validate Section II: Danh sách công việc
+            const taskRows = document.querySelectorAll('.task-row');
+            let hasValidTask = false;
+
+            taskRows.forEach((row, index) => {
+                const taskName = row.querySelector('.task-name');
+                const taskTime = row.querySelector('.task-time');
+                const taskResult = row.querySelector('.task-result');
+
+                const hasName = taskName.value.trim() !== '';
+                const hasTime = taskTime.value.trim() !== '';
+                const hasResult = taskResult.value.trim() !== '';
+
+                // Check if this row has any data
+                const hasAnyData = hasName || hasTime || hasResult;
+
+                if (hasAnyData) {
+                    // If row has any data, ALL three required fields must be filled
+                    if (!hasName) {
+                        taskName.classList.add('error');
+                        isValid = false;
+                    }
+                    if (!hasTime) {
+                        taskTime.classList.add('error');
+                        isValid = false;
+                    }
+                    if (!hasResult) {
+                        taskResult.classList.add('error');
+                        isValid = false;
+                    }
+
+                    // If all three are filled, we have at least one valid task
+                    if (hasName && hasTime && hasResult) {
+                        hasValidTask = true;
+                    }
+                }
+            });
+
+            if (!hasValidTask) {
+                errorMessages.push('Vui lòng thêm ít nhất một công việc với đầy đủ thông tin (Tên công việc, Thời gian, Kết quả).');
+                isValid = false;
+            }
+
+            return { isValid, errorMessages };
+        }
+
+        function showModal(message, type = 'error') {
+            const modal = document.getElementById('validationModal');
+            const modalIcon = modal.querySelector('.modal-icon');
+            const modalTitle = modal.querySelector('.modal-title');
+            const modalMessage = document.getElementById('modalMessage');
+            const modalButton = modal.querySelector('.modal-button');
+
+            if (type === 'success') {
+                modalIcon.innerHTML = '<i class="bi bi-check-circle-fill"></i>';
+                modalIcon.style.background = 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%)';
+                modalIcon.querySelector('i').style.color = '#10b981';
+                modalTitle.textContent = 'Đã xuất file';
+                modalButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
             } else {
-                // Nếu > 1 dòng -> Hiện nút xóa
-                deleteBtn.classList.remove('disabled');
+                modalIcon.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i>';
+                modalIcon.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%)';
+                modalIcon.querySelector('i').style.color = '#ef4444';
+                modalTitle.textContent = 'Vui lòng kiểm tra lại';
+                modalButton.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
+            }
+
+            // Handle line breaks properly
+            modalMessage.innerHTML = message.split('\n').map(line => line.trim()).filter(line => line).join('<br><br>');
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('validationModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('validationModal').addEventListener('click', (e) => {
+            if (e.target.id === 'validationModal') {
+                closeModal();
             }
         });
-    }
 
-    // --- 3. Các hàm xử lý dữ liệu khác (Giữ nguyên) ---
-    function handleEmptyText(textValue) {
-        if (textValue && textValue.trim() !== "") return textValue;
-        const dots = "................................................................................................................................................................"; 
-        return `${dots}\n${dots}\n${dots}`;
-    }
+        // === GENERATE REPORT ===
+        function generateReport() {
+            // Validate form first
+            const validation = validateForm();
+            if (!validation.isValid) {
+                const message = validation.errorMessages.join('\n\n');
+                showModal(message);
+                return;
+            }
 
-    function getRatingMap() {
-        const checkedSym = "☑";
-        const uncheckedSym = "☐";
-        const selected = document.querySelector('input[name="selfRating"]:checked')?.value || "";
-        return {
-            c_xs:   selected === 'xs'   ? checkedSym : uncheckedSym,
-            c_tot:  selected === 'tot'  ? checkedSym : uncheckedSym,
-            c_kha:  selected === 'kha'  ? checkedSym : uncheckedSym,
-            c_dat:  selected === 'dat'  ? checkedSym : uncheckedSym,
-            c_kdat: selected === 'kdat' ? checkedSym : uncheckedSym,
-        };
-    }
+            const btn = event.target;
+            const originalHTML = btn.innerHTML;
 
-    // --- 4. Hàm Xuất File Word ---
-    function generateReport() {
-        fetch('./template.docx')
-            .then(res => {
-                if (res.status !== 200) throw new Error("Không tìm thấy file template.docx!");
-                return res.arrayBuffer();
-            })
-            .then(content => {
-                const zip = new PizZip(content);
-                const doc = new window.docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
+            // Show loading state
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span><span>Đang tạo báo cáo...</span>';
 
-                // Xử lý Ngày tháng (Lấy từ Flatpickr value dạng DD/MM/YYYY)
-                const dateVal = document.getElementById('inputDate').value; 
-                const [day, month, year] = dateVal.split("/"); // Tách theo format DD/MM/YYYY
+            fetch('./template.docx')
+                .then(res => {
+                    if (res.status !== 200) throw new Error("Không tìm thấy file template.docx!");
+                    return res.arrayBuffer();
+                })
+                .then(content => {
+                    const zip = new PizZip(content);
+                    const doc = new window.docxtemplater(zip, { paragraphLoop: true, linebreaks: true });
 
-                // Xử lý Bảng
-                const taskRows = document.querySelectorAll('.task-row');
-                const listData = Array.from(taskRows).map((row, i) => {
-                    return {
-                        stt: i + 1,
-                        ten_cv: row.querySelector('.task-name').value,
-                        thoigian_cv: row.querySelector('.task-time').value,
-                        ketqua_cv: row.querySelector('.task-result').value,
-                        ghichu_CV: row.querySelector('.task-note').value
+                    // Process date
+                    const dateVal = document.getElementById('inputDate').value;
+                    const [day, month, year] = dateVal.split("/");
+
+                    // Process task table
+                    const taskRows = document.querySelectorAll('.task-row');
+                    const listData = Array.from(taskRows).map((row, i) => {
+                        return {
+                            stt: i + 1,
+                            ten_cv: row.querySelector('.task-name').value,
+                            thoigian_cv: row.querySelector('.task-time').value,
+                            ketqua_cv: row.querySelector('.task-result').value,
+                            ghichu_CV: row.querySelector('.task-note').value
+                        };
+                    });
+
+                    const finalData = {
+                        ngay: day, thang: month, nam: year,
+                        ho_va_ten: document.getElementById('hoVaTen').value,
+                        chuc_vu: document.getElementById('chucVu').value,
+                        sdt: document.getElementById('sdt').value,
+                        ten_hoat_dong: document.getElementById('tenHoatDong').value,
+                        thoigian_hd: document.getElementById('thoiGianHD').value,
+                        diadiem_hd: document.getElementById('diaDiemHD').value,
+                        ds_viec: listData,
+                        khokhan: handleEmptyText(document.getElementById('khoKhan').value),
+                        dexuat: handleEmptyText(document.getElementById('deXuat').value),
+                        ...getRatingMap()
                     };
-                });
 
-                const finalData = {
-                    ngay: day, thang: month, nam: year,
-                    ho_va_ten: document.getElementById('hoVaTen').value,
-                    chuc_vu: document.getElementById('chucVu').value,
-                    sdt: document.getElementById('sdt').value,
-                    ten_hoat_dong: document.getElementById('tenHoatDong').value,
-                    thoigian_hd: document.getElementById('thoiGianHD').value,
-                    diadiem_hd: document.getElementById('diaDiemHD').value,
-                    ds_viec: listData,
-                    khokhan: handleEmptyText(document.getElementById('khoKhan').value),
-                    dexuat: handleEmptyText(document.getElementById('deXuat').value),
-                    ...getRatingMap()
-                };
+                    doc.render(finalData);
 
-                doc.render(finalData);
-                
-                const blob = doc.getZip().generate({
-                    type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    const blob = doc.getZip().generate({
+                        type: "blob", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    });
+
+                    // Generate filename
+                    let cleanName = xoaDauTiengViet(finalData.ho_va_ten);
+                    cleanName = cleanName.replace(/[^a-zA-Z0-9\s]/g, '');
+                    cleanName = cleanName.trim().replace(/\s+/g, '');
+                    const fileName = `Bao_cao_${cleanName}_${day}${month}${year}.docx`;
+
+                    saveAs(blob, fileName);
+
+                    // Reset button
+                    btn.disabled = false;
+                    btn.innerHTML = originalHTML;
+
+                    // Show success modal
+                    showModal('Vui lòng kiểm tra thư mục tải xuống để lấy file vừa tạo.', 'success');
+                })
+                .catch(err => {
+                    showModal("Lỗi: " + err.message, 'error');
+                    btn.disabled = false;
+                    btn.innerHTML = originalHTML;
                 });
-                
-                // Tên file khi tải về
-                const fileNameClean = finalData.ho_va_ten.replace(/[^a-zA-Z0-9\s]/g, '').replace(/\s+/g, '_');
-                saveAs(blob, `Bao_cao_${fileNameClean}_${day}${month}.docx`);
-            })
-            .catch(err => {
-                alert("Lỗi: " + err.message);
-                console.error(err);
-            });
-    }
-</script>
+        }
+
+        // Clear error state on input
+        document.addEventListener('input', (e) => {
+            if (e.target.classList.contains('form-control')) {
+                e.target.classList.remove('error');
+            }
+        });
+    </script>
 
 </body>
+
 </html>
