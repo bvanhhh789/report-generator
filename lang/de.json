@@ -1,0 +1,84 @@
+{
+    "langName": "Deutsch",
+    "langCode": "de",
+    "navbar": {
+        "backLink": "Zur alten Oberfläche zurückkehren",
+        "themeLight": "Dunkler Modus",
+        "themeDark": "Heller Modus"
+    },
+    "header": {
+        "title": "Aktivitätsberichtssystem",
+        "subtitle": "Logistikabteilung - HCYU Zweigstelle der Hanoi Vocational College of Technology",
+        "pageTitle": "Aktivitätsberichtssystem - Logistikabteilung"
+    },
+    "infoBanner": {
+        "title": "Benutzerhandbuch",
+        "description": "Verwenden Sie das untenstehende Formular, um schnell Aktivitätsberichte zu erstellen. Klicken Sie nach Abschluss auf die Schaltfläche \"Berichtsdatei exportieren\", um die Word-Datei (.docx) herunterzuladen.",
+        "point1": "Mit (*) gekennzeichnete Felder sind Pflichtfelder",
+        "point2": "Die Tabelle \"Aufgabenliste\" ermöglicht es Ihnen, nach Bedarf Zeilen hinzuzufügen oder zu entfernen",
+        "point3": "Daten werden direkt im Browser verarbeitet, um Sicherheit zu gewährleisten"
+    },
+    "sections": {
+        "section1": "I. Allgemeine Informationen",
+        "section2": "II. Aufgabenliste",
+        "section3": "III. Feedback",
+        "section4": "IV. Selbstbewertung"
+    },
+    "form": {
+        "fullName": "Vollständiger Name",
+        "fullNamePlaceholder": "z.B. Max Mustermann",
+        "position": "Position",
+        "positionPlaceholder": "z.B. Teamleiter",
+        "phone": "Telefonnummer",
+        "phonePlaceholder": "09xxxxxxx",
+        "reportDate": "Berichtsdatum",
+        "reportDatePlaceholder": "dd/mm/yyyy",
+        "activityName": "Aktivitätsname",
+        "activityNamePlaceholder": "Projekt X Implementierung",
+        "activityTime": "Aktivitätszeit",
+        "activityTimePlaceholder": "z.B. 8:00 - 17:00 Uhr",
+        "location": "Ort",
+        "locationPlaceholder": "z.B. Gebäude A17 Ta Quang Buu",
+        "required": "*"
+    },
+    "tasks": {
+        "taskName": "Aufgabenname",
+        "taskTime": "Zeit",
+        "taskResult": "Ergebnis",
+        "taskNote": "Notiz",
+        "addTask": "Aufgabenzeile hinzufügen",
+        "deleteTask": "Diese Zeile löschen"
+    },
+    "feedback": {
+        "difficulties": "Schwierigkeiten oder Probleme (falls vorhanden)",
+        "difficultiesPlaceholder": "Notieren Sie alle Schwierigkeiten oder Probleme, die bei der Ausführung der Aufgaben aufgetreten sind...",
+        "suggestions": "Vorschläge oder Anregungen",
+        "suggestionsPlaceholder": "Lösungen vorschlagen..."
+    },
+    "rating": {
+        "description": "Bitte berichten Sie ehrlich, da die Abteilung diese Selbstbewertungsdaten als Grundlage für Ihre Sternebewertung verwendet.",
+        "excellent": "Ausgezeichnet",
+        "good": "Gut",
+        "fair": "Befriedigend",
+        "pass": "Bestanden",
+        "fail": "Nicht bestanden"
+    },
+    "buttons": {
+        "export": "BERICHTDATEI EXPORTIEREN (.DOCX)",
+        "exportLoading": "Bericht wird erstellt...",
+        "understood": "Verstanden"
+    },
+    "modal": {
+        "validationTitle": "Bitte überprüfen",
+        "validationMessage": "Sie müssen alle Pflichtfelder ausfüllen, bevor Sie den Bericht exportieren.",
+        "successTitle": "Datei exportiert",
+        "successMessage": "Bitte überprüfen Sie Ihren Download-Ordner für die generierte Datei.",
+        "errorGeneralInfo": "Bitte füllen Sie alle Informationen im Abschnitt \"Allgemeine Informationen\" aus.",
+        "errorTaskList": "Bitte fügen Sie mindestens eine Aufgabe mit vollständigen Informationen (Aufgabenname, Zeit, Ergebnis) hinzu.",
+        "errorPrefix": "Fehler: ",
+        "errorTemplate": "Vorlagendatei template.docx nicht gefunden!"
+    },
+    "footer": {
+        "security": "Daten werden direkt im Browser verarbeitet, um Sicherheit zu gewährleisten"
+    }
+}

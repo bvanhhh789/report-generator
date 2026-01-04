@@ -1,0 +1,84 @@
+{
+    "langName": "English",
+    "langCode": "en",
+    "navbar": {
+        "backLink": "Back to old interface",
+        "themeLight": "Dark mode",
+        "themeDark": "Light mode"
+    },
+    "header": {
+        "title": "Activity Report Generation System",
+        "subtitle": "Logistics Department - HCYU inter-chapter of Hanoi Vocational College of Technology",
+        "pageTitle": "Activity Report Generation System - Logistics Department"
+    },
+    "infoBanner": {
+        "title": "User Guide",
+        "description": "Use the form below to quickly create Activity Reports. Once completed, click the \"Export report file\" button to download the Word (.docx) file.",
+        "point1": "Fields marked with (*) are required",
+        "point2": "The \"Task List\" table allows you to add or remove rows as needed",
+        "point3": "Data is processed directly in the browser, ensuring security"
+    },
+    "sections": {
+        "section1": "I. General Information",
+        "section2": "II. Task List",
+        "section3": "III. Feedback",
+        "section4": "IV. Self-Assessment"
+    },
+    "form": {
+        "fullName": "Full Name",
+        "fullNamePlaceholder": "e.g., John Doe",
+        "position": "Position",
+        "positionPlaceholder": "e.g., Team Leader",
+        "phone": "Phone Number",
+        "phonePlaceholder": "09xxxxxxx",
+        "reportDate": "Report Date",
+        "reportDatePlaceholder": "dd/mm/yyyy",
+        "activityName": "Activity Name",
+        "activityNamePlaceholder": "Project X Implementation",
+        "activityTime": "Activity Time",
+        "activityTimePlaceholder": "e.g., 8:00 AM - 5:00 PM",
+        "location": "Location",
+        "locationPlaceholder": "e.g., Building A17 Ta Quang Buu",
+        "required": "*"
+    },
+    "tasks": {
+        "taskName": "Task Name",
+        "taskTime": "Time",
+        "taskResult": "Result",
+        "taskNote": "Note",
+        "addTask": "Add task row",
+        "deleteTask": "Delete this row"
+    },
+    "feedback": {
+        "difficulties": "Difficulties, Issues (If any)",
+        "difficultiesPlaceholder": "Record any difficulties or issues encountered while performing tasks...",
+        "suggestions": "Suggestions, Proposals",
+        "suggestionsPlaceholder": "Propose solutions..."
+    },
+    "rating": {
+        "description": "Please report honestly, as the Department will use this self-assessment data as a basis for your star rating.",
+        "excellent": "Excellent",
+        "good": "Good",
+        "fair": "Fair",
+        "pass": "Pass",
+        "fail": "Not Pass"
+    },
+    "buttons": {
+        "export": "EXPORT REPORT FILE (.DOCX)",
+        "exportLoading": "Generating report...",
+        "understood": "Understood"
+    },
+    "modal": {
+        "validationTitle": "Please Review",
+        "validationMessage": "You need to fill in all required fields before exporting the report.",
+        "successTitle": "File Exported",
+        "successMessage": "Please check your downloads folder for the generated file.",
+        "errorGeneralInfo": "Please fill in all information in the \"General Information\" section.",
+        "errorTaskList": "Please add at least one task with complete information (Task Name, Time, Result).",
+        "errorPrefix": "Error: ",
+        "errorTemplate": "Template file template.docx not found!"
+    },
+    "footer": {
+        "security": "Data is processed directly in the browser, ensuring security"
+    }
+}

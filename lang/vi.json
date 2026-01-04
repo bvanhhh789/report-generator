@@ -1,0 +1,84 @@
+{
+  "langName": "Tiếng Việt",
+  "langCode": "vi",
+  "navbar": {
+    "backLink": "Quay lại giao diện cũ",
+    "themeLight": "Chế độ tối",
+    "themeDark": "Chế độ sáng"
+  },
+  "header": {
+    "title": "Hệ thống tạo báo cáo hoạt động",
+    "subtitle": "Ban Hậu cần - Liên Chi đoàn trường Cao đẳng nghề Bách khoa Hà Nội",
+    "pageTitle": "Hệ thống tạo báo cáo hoạt động - Ban Hậu cần"
+  },
+  "infoBanner": {
+    "title": "Hướng dẫn sử dụng",
+    "description": "Sử dụng biểu mẫu bên dưới để tạo nhanh Báo cáo hoạt động. Sau khi hoàn tất, nhấn nút \"Xuất file báo cáo\" để tải về file Word (.docx).",
+    "point1": "Các trường đánh dấu (*) là bắt buộc phải điền",
+    "point2": "Bảng \"Danh sách công việc\" cho phép bạn thêm hoặc xóa dòng tùy ý",
+    "point3": "Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật"
+  },
+  "sections": {
+    "section1": "I. Thông tin chung",
+    "section2": "II. Danh sách công việc",
+    "section3": "III. Ý kiến đóng góp",
+    "section4": "IV. Tự đánh giá cá nhân"
+  },
+  "form": {
+    "fullName": "Họ và tên",
+    "fullNamePlaceholder": "VD: Đào Ngọc Minh Tú",
+    "position": "Chức vụ",
+    "positionPlaceholder": "VD: Trưởng ban",
+    "phone": "Số điện thoại",
+    "phonePlaceholder": "09xxxxxxx",
+    "reportDate": "Ngày báo cáo",
+    "reportDatePlaceholder": "dd/mm/yyyy",
+    "activityName": "Tên hoạt động",
+    "activityNamePlaceholder": "Triển khai dự án X",
+    "activityTime": "Thời gian diễn ra",
+    "activityTimePlaceholder": "VD: 8h00 - 17h00",
+    "location": "Địa điểm",
+    "locationPlaceholder": "VD: Tòa A17 Tạ Quang Bửu",
+    "required": "*"
+  },
+  "tasks": {
+    "taskName": "Tên công việc",
+    "taskTime": "Thời gian",
+    "taskResult": "Kết quả",
+    "taskNote": "Ghi chú",
+    "addTask": "Thêm dòng công việc",
+    "deleteTask": "Xóa dòng này"
+  },
+  "feedback": {
+    "difficulties": "Khó khăn, vướng mắc (Nếu có)",
+    "difficultiesPlaceholder": "Ghi lại những khó khăn, vướng mắc trong khi thực hiện nhiệm vụ...",
+    "suggestions": "Đề xuất, kiến nghị",
+    "suggestionsPlaceholder": "Đề xuất giải pháp..."
+  },
+  "rating": {
+    "description": "Vui lòng báo cáo một cách trung thực, bởi Ban sẽ dựa vào dữ liệu tự đánh giá này làm căn cứ tính sao cho Đồng chí.",
+    "excellent": "Xuất sắc",
+    "good": "Tốt",
+    "fair": "Khá",
+    "pass": "Đạt",
+    "fail": "Chưa đạt"
+  },
+  "buttons": {
+    "export": "XUẤT FILE BÁO CÁO (.DOCX)",
+    "exportLoading": "Đang tạo báo cáo...",
+    "understood": "Đã hiểu"
+  },
+  "modal": {
+    "validationTitle": "Vui lòng kiểm tra lại",
+    "validationMessage": "Bạn cần điền đầy đủ các trường bắt buộc trước khi xuất báo cáo.",
+    "successTitle": "Đã xuất file",
+    "successMessage": "Vui lòng kiểm tra thư mục tải xuống để lấy file vừa tạo.",
+    "errorGeneralInfo": "Vui lòng điền đầy đủ thông tin trong phần \"Thông tin chung\".",
+    "errorTaskList": "Vui lòng thêm ít nhất một công việc với đầy đủ thông tin (Tên công việc, Thời gian, Kết quả).",
+    "errorPrefix": "Lỗi: ",
+    "errorTemplate": "Không tìm thấy file template.docx!"
+  },
+  "footer": {
+    "security": "Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật"
+  }
+}

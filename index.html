@@ -30,7 +30,7 @@
         <!-- Left: Back Link -->
         <a href="https://bvanhhh789.github.io/report-generator/old.html" class="nav-back-link">
             <i class="bi bi-arrow-left"></i>
-            <span class="back-text">Quay lại giao diện cũ</span>
+            <span class="back-text" data-i18n="navbar.backLink">Quay lại giao diện cũ</span>
         </a>
 
         <!-- Center: Clock -->
@@ -39,11 +39,57 @@
             <div class="clock-date" id="clockDate">01/01/2026</div>
         </div>
 
-        <!-- Right: Theme Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-            <i class="bi bi-moon-stars-fill"></i>
-            <span class="theme-text" id="themeText">Chế độ tối</span>
-        </button>
+        <!-- Right: Language Switcher & Theme Toggle -->
+        <div class="nav-right-controls">
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="language-toggle" id="languageBtn" aria-label="Switch language">
+                    <span class="lang-flag" id="currentLang">🇻🇳</span>
+                    <span class="lang-code" id="currentLangCode">VI</span>
+                    <i class="bi bi-chevron-down lang-arrow"></i>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <button class="language-option" data-lang="vi">
+                        <span class="lang-flag">🇻🇳</span>
+                        <span class="lang-name">Tiếng Việt</span>
+                    </button>
+                    <button class="language-option" data-lang="en">
+                        <span class="lang-flag">🇬🇧</span>
+                        <span class="lang-name">English</span>
+                    </button>
+                    <button class="language-option" data-lang="cn">
+                        <span class="lang-flag">🇨🇳</span>
+                        <span class="lang-name">中文</span>
+                    </button>
+                    <button class="language-option" data-lang="ko">
+                        <span class="lang-flag">🇰🇷</span>
+                        <span class="lang-name">한국어</span>
+                    </button>
+                    <button class="language-option" data-lang="ja">
+                        <span class="lang-flag">🇯🇵</span>
+                        <span class="lang-name">日本語</span>
+                    </button>
+                    <button class="language-option" data-lang="de">
+                        <span class="lang-flag">🇩🇪</span>
+                        <span class="lang-name">Deutsch</span>
+                    </button>
+                    <button class="language-option" data-lang="es">
+                        <span class="lang-flag">🇪🇸</span>
+                        <span class="lang-name">Español</span>
+                    </button>
+                    <button class="language-option" data-lang="th">
+                        <span class="lang-flag">🇹🇭</span>
+                        <span class="lang-name">ไทย</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <i class="bi bi-moon-stars-fill"></i>
+                <span class="theme-text" id="themeText" data-i18n="navbar.themeLight">Chế độ tối</span>
+            </button>
+        </div>
     </nav>
 
     <div class="container">
@@ -51,9 +97,9 @@
         <div class="header-card">
             <h1>
                 <i class="bi bi-file-earmark-text"></i>
-                <span>Hệ thống tạo báo cáo hoạt động</span>
+                <span data-i18n="header.title">Hệ thống tạo báo cáo hoạt động</span>
             </h1>
-            <p>Ban Hậu cần - Liên Chi đoàn trường Cao đẳng nghề Bách khoa Hà Nội</p>
+            <p data-i18n="header.subtitle">Ban Hậu cần - Liên Chi đoàn trường Cao đẳng nghề Bách khoa Hà Nội</p>
         </div>
 
         <!-- Main Card -->
@@ -62,14 +108,16 @@
             <div class="info-banner">
                 <h3>
                     <i class="bi bi-info-circle-fill"></i>
-                    Hướng dẫn sử dụng
+                    <span data-i18n="infoBanner.title">Hướng dẫn sử dụng</span>
                 </h3>
-                <p>Sử dụng biểu mẫu bên dưới để tạo nhanh Báo cáo hoạt động. Sau khi hoàn tất, nhấn nút "Xuất file báo
-                    cáo" để tải về file Word (.docx).</p>
+                <p data-i18n="infoBanner.description">Sử dụng biểu mẫu bên dưới để tạo nhanh Báo cáo hoạt động. Sau khi
+                    hoàn tất, nhấn nút "Xuất file báo cáo" để tải về file Word (.docx).</p>
                 <ul>
-                    <li>Các trường đánh dấu (*) là bắt buộc phải điền</li>
-                    <li>Bảng "Danh sách công việc" cho phép bạn thêm hoặc xóa dòng tùy ý</li>
-                    <li>Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật</li>
+                    <li data-i18n="infoBanner.point1">Các trường đánh dấu (*) là bắt buộc phải điền</li>
+                    <li data-i18n="infoBanner.point2">Bảng "Danh sách công việc" cho phép bạn thêm hoặc xóa dòng tùy ý
+                    </li>
+                    <li data-i18n="infoBanner.point3">Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật
+                    </li>
                 </ul>
             </div>
 
@@ -78,86 +126,98 @@
                 <!-- Section I: Thông tin chung -->
                 <h2 class="section-title">
                     <i class="bi bi-person-badge"></i>
-                    I. Thông tin chung
+                    <span data-i18n="sections.section1">I. Thông tin chung</span>
                 </h2>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Họ và tên <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="hoVaTen" placeholder="VD: Đào Ngọc Minh Tú"
-                            required>
+                        <label class="form-label"><span data-i18n="form.fullName"></span></span> <span class="required"
+                                data-i18n="form.required">*</span></label>
+                        <input type="text" class="form-control" id="hoVaTen" data-i18n="form.fullNamePlaceholder"
+                            placeholder="VD: Đào Ngọc Minh Tú" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Chức vụ <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="chucVu" placeholder="VD: Trưởng ban" required>
+                        <label class="form-label"><span data-i18n="form.position">Chức vụ</span> <span class="required"
+                                data-i18n="form.required">*</span></label>
+                        <input type="text" class="form-control" id="chucVu" data-i18n="form.positionPlaceholder"
+                            placeholder="VD: Trưởng ban" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Số điện thoại <span class="required">*</span></label>
-                        <input type="tel" class="form-control" id="sdt" placeholder="09xxxxxxx" required>
+                        <label class="form-label"><span data-i18n="form.phone">Số điện thoại</span> <span
+                                class="required" data-i18n="form.required">*</span></label>
+                        <input type="tel" class="form-control" id="sdt" data-i18n="form.phonePlaceholder"
+                            placeholder="09xxxxxxx" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Ngày báo cáo <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="inputDate" placeholder="dd/mm/yyyy" required>
+                        <label class="form-label"><span data-i18n="form.reportDate">Ngày báo cáo</span> <span
+                                class="required" data-i18n="form.required">*</span></label>
+                        <input type="text" class="form-control" id="inputDate" data-i18n="form.reportDatePlaceholder"
+                            placeholder="dd/mm/yyyy" required>
                     </div>
                     <div class="form-group" style="grid-column: span 2;">
-                        <label class="form-label">Tên hoạt động <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="tenHoatDong" placeholder="Triển khai dự án X"
-                            required>
+                        <label class="form-label"><span data-i18n="form.activityName">Tên hoạt động</span> <span
+                                class="required" data-i18n="form.required">*</span></label>
+                        <input type="text" class="form-control" id="tenHoatDong"
+                            data-i18n="form.activityNamePlaceholder" placeholder="Triển khai dự án X" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label class="form-label">Thời gian diễn ra <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="thoiGianHD" placeholder="VD: 8h00 - 17h00" required>
+                        <label class="form-label"><span data-i18n="form.activityTime">Thời gian diễn ra</span> <span
+                                class="required" data-i18n="form.required">*</span></label>
+                        <input type="text" class="form-control" id="thoiGianHD" data-i18n="form.activityTimePlaceholder"
+                            placeholder="VD: 8h00 - 17h00" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Địa điểm <span class="required">*</span></label>
-                        <input type="text" class="form-control" id="diaDiemHD" placeholder="VD: Tòa A17 Tạ Quang Bửu"
-                            required>
+                        <label class="form-label"><span data-i18n="form.location">Địa điểm</span> <span class="required"
+                                data-i18n="form.required">*</span></label>
+                        <input type="text" class="form-control" id="diaDiemHD" data-i18n="form.locationPlaceholder"
+                            placeholder="VD: Tòa A17 Tạ Quang Bửu" required>
                     </div>
                 </div>
 
                 <!-- Section II: Danh sách công việc -->
                 <h2 class="section-title">
                     <i class="bi bi-list-task"></i>
-                    II. Danh sách công việc
+                    <span data-i18n="sections.section2">II. Danh sách công việc</span>
                 </h2>
 
                 <div id="taskList" class="task-list"></div>
 
                 <button type="button" class="btn btn-outline" onclick="addTaskRow()">
                     <i class="bi bi-plus-circle"></i>
-                    <span>Thêm dòng công việc</span>
+                    <span data-i18n="tasks.addTask">Thêm dòng công việc</span>
                 </button>
 
                 <!-- Section III: Ý kiến đóng góp -->
                 <h2 class="section-title">
                     <i class="bi bi-chat-left-text"></i>
-                    III. Ý kiến đóng góp
+                    <span data-i18n="sections.section3">III. Ý kiến đóng góp</span>
                 </h2>
 
                 <div class="form-group" style="margin-bottom: 1.25rem;">
-                    <label class="form-label">Khó khăn, vướng mắc (Nếu có)</label>
-                    <textarea class="form-control" id="khoKhan"
+                    <label class="form-label" data-i18n="feedback.difficulties">Khó khăn, vướng mắc (Nếu có)</label>
+                    <textarea class="form-control" id="khoKhan" data-i18n="feedback.difficultiesPlaceholder"
                         placeholder="Ghi lại những khó khăn, vướng mắc trong khi thực hiện nhiệm vụ..."></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Đề xuất, kiến nghị</label>
-                    <textarea class="form-control" id="deXuat" placeholder="Đề xuất giải pháp..."></textarea>
+                    <label class="form-label" data-i18n="feedback.suggestions">Đề xuất, kiến nghị</label>
+                    <textarea class="form-control" id="deXuat" data-i18n="feedback.suggestionsPlaceholder"
+                        placeholder="Đề xuất giải pháp..."></textarea>
                 </div>
 
                 <!-- Section IV: Tự đánh giá -->
                 <h2 class="section-title">
                     <i class="bi bi-check2-square"></i>
-                    IV. Tự đánh giá cá nhân
+                    <span data-i18n="sections.section4">IV. Tự đánh giá cá nhân</span>
                 </h2>
 
-                <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                <p style="color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="rating.description">
                     Vui lòng báo cáo một cách trung thực, bởi Ban sẽ dựa vào dữ liệu tự đánh giá này làm căn cứ tính sao
                     cho Đồng chí.
                 </p>
@@ -165,30 +225,30 @@
                 <div class="rating-container">
                     <div class="radio-option">
                         <input type="radio" name="selfRating" id="rXS" value="xs">
-                        <label for="rXS">Xuất sắc</label>
+                        <label for="rXS" data-i18n="rating.excellent">Xuất sắc</label>
                     </div>
                     <div class="radio-option">
                         <input type="radio" name="selfRating" id="rTot" value="tot">
-                        <label for="rTot">Tốt</label>
+                        <label for="rTot" data-i18n="rating.good">Tốt</label>
                     </div>
                     <div class="radio-option">
                         <input type="radio" name="selfRating" id="rKha" value="kha" checked>
-                        <label for="rKha">Khá</label>
+                        <label for="rKha" data-i18n="rating.fair">Khá</label>
                     </div>
                     <div class="radio-option">
                         <input type="radio" name="selfRating" id="rDat" value="dat">
-                        <label for="rDat">Đạt</label>
+                        <label for="rDat" data-i18n="rating.pass">Đạt</label>
                     </div>
                     <div class="radio-option">
                         <input type="radio" name="selfRating" id="rKDat" value="kdat">
-                        <label for="rKDat">Chưa đạt</label>
+                        <label for="rKDat" data-i18n="rating.fail">Chưa đạt</label>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
                 <button type="button" onclick="generateReport()" class="btn btn-success">
                     <i class="bi bi-file-earmark-word"></i>
-                    <span>XUẤT FILE BÁO CÁO (.DOCX)</span>
+                    <span data-i18n="buttons.export">XUẤT FILE BÁO CÁO (.DOCX)</span>
                 </button>
             </form>
         </div>
@@ -196,7 +256,7 @@
         <!-- Footer -->
         <p class="footer-text">
             <i class="bi bi-shield-check"></i>
-            Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật
+            <span data-i18n="footer.security">Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật</span>
         </p>
     </div>
 
@@ -207,7 +267,7 @@
                 <div class="modal-icon">
                     <i class="bi bi-exclamation-triangle-fill"></i>
                 </div>
-                <h2 class="modal-title">Vui lòng kiểm tra lại</h2>
+                <h2 class="modal-title" data-i18n="modal.validationTitle">Vui lòng kiểm tra lại</h2>
             </div>
             <div class="modal-body">
                 <p class="modal-message" id="modalMessage">
@@ -216,13 +276,16 @@
             </div>
             <div class="modal-footer">
                 <button class="modal-button" onclick="closeModal()">
-                    Đã hiểu
+                    <span data-i18n="buttons.understood">Đã hiểu</span>
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
+    <!-- i18n Module (must load first) -->
+    <script src="i18n.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/pizzip@3.2.0/dist/pizzip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.37.11/docxtemplater.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
@@ -303,28 +366,33 @@
             <div class="task-row">
                 <div class="task-header">
                     <div class="task-number">#</div>
-                    <button type="button" class="task-delete" onclick="deleteRow(this)" title="Xóa dòng này">
+                    <button type="button" class="task-delete" onclick="deleteRow(this)" data-i18n-title="tasks.deleteTask" title="Xóa dòng này">
                         <i class="bi bi-trash3-fill"></i>
                     </button>
                 </div>
                 <div class="task-fields">
                     <div class="form-group">
-                        <input type="text" class="form-control task-name" placeholder="Tên công việc" required>
+                        <input type="text" class="form-control task-name" data-i18n="tasks.taskName" placeholder="Tên công việc" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control task-time" placeholder="Thời gian" required>
+                        <input type="text" class="form-control task-time" data-i18n="tasks.taskTime" placeholder="Thời gian" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control task-result" placeholder="Kết quả" required>
+                        <input type="text" class="form-control task-result" data-i18n="tasks.taskResult" placeholder="Kết quả" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control task-note" placeholder="Ghi chú">
+                        <input type="text" class="form-control task-note" data-i18n="tasks.taskNote" placeholder="Ghi chú">
                     </div>
                 </div>
             </div>
         `;
             container.insertAdjacentHTML('beforeend', rowHTML);
             updateUI();
+
+            // Apply translations to the newly added row
+            if (typeof i18n !== 'undefined') {
+                i18n.applyTranslations();
+            }
         }
 
         function deleteRow(btn) {
@@ -403,7 +471,7 @@
             });
 
             if (!isValid) {
-                errorMessages.push('Vui lòng điền đầy đủ thông tin trong phần "Thông tin chung".');
+                errorMessages.push(i18n.getTranslation('modal.errorGeneralInfo'));
             }
 
             // 2. Validate Section II: Danh sách công việc
@@ -445,7 +513,7 @@
             });
 
             if (!hasValidTask) {
-                errorMessages.push('Vui lòng thêm ít nhất một công việc với đầy đủ thông tin (Tên công việc, Thời gian, Kết quả).');
+                errorMessages.push(i18n.getTranslation('modal.errorTaskList'));
                 isValid = false;
             }
 
@@ -463,13 +531,13 @@
                 modalIcon.innerHTML = '<i class="bi bi-check-circle-fill"></i>';
                 modalIcon.style.background = 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.2) 100%)';
                 modalIcon.querySelector('i').style.color = '#10b981';
-                modalTitle.textContent = 'Đã xuất file';
+                modalTitle.textContent = i18n.getTranslation('modal.successTitle');
                 modalButton.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
             } else {
                 modalIcon.innerHTML = '<i class="bi bi-exclamation-triangle-fill"></i>';
                 modalIcon.style.background = 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.2) 100%)';
                 modalIcon.querySelector('i').style.color = '#ef4444';
-                modalTitle.textContent = 'Vui lòng kiểm tra lại';
+                modalTitle.textContent = i18n.getTranslation('modal.validationTitle');
                 modalButton.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
             }
 
@@ -508,11 +576,11 @@
 
             // Show loading state
             btn.disabled = true;
-            btn.innerHTML = '<span class="loading"></span><span>Đang tạo báo cáo...</span>';
+            btn.innerHTML = '<span class="loading"></span><span>' + i18n.getTranslation('buttons.exportLoading') + '</span>';
 
             fetch('./template.docx')
                 .then(res => {
-                    if (res.status !== 200) throw new Error("Không tìm thấy file template.docx!");
+                    if (res.status !== 200) throw new Error(i18n.getTranslation('modal.errorTemplate'));
                     return res.arrayBuffer();
                 })
                 .then(content => {
@@ -568,10 +636,10 @@
                     btn.innerHTML = originalHTML;
 
                     // Show success modal
-                    showModal('Vui lòng kiểm tra thư mục tải xuống để lấy file vừa tạo.', 'success');
+                    showModal(i18n.getTranslation('modal.successMessage'), 'success');
                 })
                 .catch(err => {
-                    showModal("Lỗi: " + err.message, 'error');
+                    showModal(i18n.getTranslation('modal.errorPrefix') + err.message, 'error');
                     btn.disabled = false;
                     btn.innerHTML = originalHTML;
                 });

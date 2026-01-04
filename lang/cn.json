@@ -1,0 +1,84 @@
+{
+    "langName": "中文",
+    "langCode": "cn",
+    "navbar": {
+        "backLink": "返回旧界面",
+        "themeLight": "深色模式",
+        "themeDark": "浅色模式"
+    },
+    "header": {
+        "title": "活动报告生成系统",
+        "subtitle": "后勤部 - 河内技术职业学院青年团分会",
+        "pageTitle": "活动报告生成系统 - 后勤部"
+    },
+    "infoBanner": {
+        "title": "使用指南",
+        "description": "使用下面的表单快速创建活动报告。完成后,点击\"导出报告文件\"按钮下载Word (.docx)文件。",
+        "point1": "标有(*)的字段为必填项",
+        "point2": "\"任务列表\"表格允许您根据需要添加或删除行",
+        "point3": "数据直接在浏览器中处理,确保安全"
+    },
+    "sections": {
+        "section1": "I. 基本信息",
+        "section2": "II. 任务列表",
+        "section3": "III. 反馈意见",
+        "section4": "IV. 自我评估"
+    },
+    "form": {
+        "fullName": "姓名",
+        "fullNamePlaceholder": "例如: 张三",
+        "position": "职位",
+        "positionPlaceholder": "例如: 班长",
+        "phone": "电话号码",
+        "phonePlaceholder": "09xxxxxxx",
+        "reportDate": "报告日期",
+        "reportDatePlaceholder": "dd/mm/yyyy",
+        "activityName": "活动名称",
+        "activityNamePlaceholder": "X项目实施",
+        "activityTime": "活动时间",
+        "activityTimePlaceholder": "例如: 上午8:00 - 下午5:00",
+        "location": "地点",
+        "locationPlaceholder": "例如: A17楼 Ta Quang Buu",
+        "required": "*"
+    },
+    "tasks": {
+        "taskName": "任务名称",
+        "taskTime": "时间",
+        "taskResult": "结果",
+        "taskNote": "备注",
+        "addTask": "添加任务行",
+        "deleteTask": "删除此行"
+    },
+    "feedback": {
+        "difficulties": "困难或问题 (如有)",
+        "difficultiesPlaceholder": "记录执行任务时遇到的任何困难或问题...",
+        "suggestions": "建议或提案",
+        "suggestionsPlaceholder": "提出解决方案..."
+    },
+    "rating": {
+        "description": "请诚实报告,因为部门将使用此自我评估数据作为您星级评分的依据。",
+        "excellent": "优秀",
+        "good": "良好",
+        "fair": "一般",
+        "pass": "及格",
+        "fail": "不及格"
+    },
+    "buttons": {
+        "export": "导出报告文件 (.DOCX)",
+        "exportLoading": "正在生成报告...",
+        "understood": "明白"
+    },
+    "modal": {
+        "validationTitle": "请检查",
+        "validationMessage": "导出报告前需要填写所有必填字段。",
+        "successTitle": "文件已导出",
+        "successMessage": "请检查您的下载文件夹以获取生成的文件。",
+        "errorGeneralInfo": "请填写\"基本信息\"部分的所有信息。",
+        "errorTaskList": "请至少添加一个包含完整信息(任务名称、时间、结果)的任务。",
+        "errorPrefix": "错误: ",
+        "errorTemplate": "未找到模板文件 template.docx!"
+    },
+    "footer": {
+        "security": "数据直接在浏览器中处理,确保安全"
+    }
+}

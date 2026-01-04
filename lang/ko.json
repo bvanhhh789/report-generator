@@ -1,0 +1,84 @@
+{
+    "langName": "한국어",
+    "langCode": "ko",
+    "navbar": {
+        "backLink": "이전 인터페이스로 돌아가기",
+        "themeLight": "다크 모드",
+        "themeDark": "라이트 모드"
+    },
+    "header": {
+        "title": "활동 보고서 생성 시스템",
+        "subtitle": "물류부 - 하노이 기술직업대학 청년단 지부",
+        "pageTitle": "활동 보고서 생성 시스템 - 물류부"
+    },
+    "infoBanner": {
+        "title": "사용 가이드",
+        "description": "아래 양식을 사용하여 활동 보고서를 빠르게 작성하세요. 완료되면 \"보고서 파일 내보내기\" 버튼을 클릭하여 Word (.docx) 파일을 다운로드하세요.",
+        "point1": "(*)로 표시된 필드는 필수 입력 항목입니다",
+        "point2": "\"작업 목록\" 표에서 필요에 따라 행을 추가하거나 제거할 수 있습니다",
+        "point3": "데이터는 브라우저에서 직접 처리되어 보안이 보장됩니다"
+    },
+    "sections": {
+        "section1": "I. 일반 정보",
+        "section2": "II. 작업 목록",
+        "section3": "III. 피드백",
+        "section4": "IV. 자체 평가"
+    },
+    "form": {
+        "fullName": "이름",
+        "fullNamePlaceholder": "예: 홍길동",
+        "position": "직위",
+        "positionPlaceholder": "예: 팀장",
+        "phone": "전화번호",
+        "phonePlaceholder": "09xxxxxxx",
+        "reportDate": "보고서 날짜",
+        "reportDatePlaceholder": "dd/mm/yyyy",
+        "activityName": "활동명",
+        "activityNamePlaceholder": "프로젝트 X 시행",
+        "activityTime": "활동 시간",
+        "activityTimePlaceholder": "예: 오전 8:00 - 오후 5:00",
+        "location": "위치",
+        "locationPlaceholder": "예: A17빌딩 Ta Quang Buu",
+        "required": "*"
+    },
+    "tasks": {
+        "taskName": "작업명",
+        "taskTime": "시간",
+        "taskResult": "결과",
+        "taskNote": "메모",
+        "addTask": "작업 행 추가",
+        "deleteTask": "이 행 삭제"
+    },
+    "feedback": {
+        "difficulties": "어려움 또는 문제 (있는 경우)",
+        "difficultiesPlaceholder": "작업 수행 중 발생한 어려움이나 문제를 기록하세요...",
+        "suggestions": "제안 또는 의견",
+        "suggestionsPlaceholder": "해결책을 제안하세요..."
+    },
+    "rating": {
+        "description": "부서에서 이 자체 평가 데이터를 별점 평가의 기준으로 사용하므로 솔직하게 보고해 주세요.",
+        "excellent": "우수",
+        "good": "양호",
+        "fair": "보통",
+        "pass": "합격",
+        "fail": "불합격"
+    },
+    "buttons": {
+        "export": "보고서 파일 내보내기 (.DOCX)",
+        "exportLoading": "보고서 생성 중...",
+        "understood": "확인"
+    },
+    "modal": {
+        "validationTitle": "확인해 주세요",
+        "validationMessage": "보고서를 내보내기 전에 모든 필수 필드를 입력해야 합니다.",
+        "successTitle": "파일이 내보내졌습니다",
+        "successMessage": "생성된 파일은 다운로드 폴더를 확인하세요.",
+        "errorGeneralInfo": "\"일반 정보\" 섹션의 모든 정보를 입력해 주세요.",
+        "errorTaskList": "완전한 정보(작업명, 시간, 결과)가 포함된 작업을 최소 하나 이상 추가해 주세요.",
+        "errorPrefix": "오류: ",
+        "errorTemplate": "템플릿 파일 template.docx를 찾을 수 없습니다!"
+    },
+    "footer": {
+        "security": "데이터는 브라우저에서 직접 처리되어 보안이 보장됩니다"
+    }
+}

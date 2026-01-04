@@ -1,0 +1,84 @@
+{
+    "langName": "Español",
+    "langCode": "es",
+    "navbar": {
+        "backLink": "Volver a la interfaz antigua",
+        "themeLight": "Modo oscuro",
+        "themeDark": "Modo claro"
+    },
+    "header": {
+        "title": "Sistema de Generación de Informes de Actividad",
+        "subtitle": "Departamento de Logística - Capítulo HCYU de la Universidad Tecnológica de Hanoi",
+        "pageTitle": "Sistema de Generación de Informes de Actividad - Departamento de Logística"
+    },
+    "infoBanner": {
+        "title": "Guía de Usuario",
+        "description": "Utilice el formulario a continuación para crear rápidamente Informes de Actividad. Una vez completado, haga clic en el botón \"Exportar archivo de informe\" para descargar el archivo de Word (.docx).",
+        "point1": "Los campos marcados con (*) son obligatorios",
+        "point2": "La tabla \"Lista de Tareas\" le permite agregar o eliminar filas según sea necesario",
+        "point3": "Los datos se procesan directamente en el navegador, garantizando la seguridad"
+    },
+    "sections": {
+        "section1": "I. Información General",
+        "section2": "II. Lista de Tareas",
+        "section3": "III. Comentarios",
+        "section4": "IV. Autoevaluación"
+    },
+    "form": {
+        "fullName": "Nombre Completo",
+        "fullNamePlaceholder": "ej. Juan Pérez",
+        "position": "Posición",
+        "positionPlaceholder": "ej. Líder de Equipo",
+        "phone": "Número de Teléfono",
+        "phonePlaceholder": "09xxxxxxx",
+        "reportDate": "Fecha del Informe",
+        "reportDatePlaceholder": "dd/mm/yyyy",
+        "activityName": "Nombre de Actividad",
+        "activityNamePlaceholder": "Implementación del Proyecto X",
+        "activityTime": "Hora de Actividad",
+        "activityTimePlaceholder": "ej. 8:00 AM - 5:00 PM",
+        "location": "Ubicación",
+        "locationPlaceholder": "ej. Edificio A17 Ta Quang Buu",
+        "required": "*"
+    },
+    "tasks": {
+        "taskName": "Nombre de Tarea",
+        "taskTime": "Tiempo",
+        "taskResult": "Resultado",
+        "taskNote": "Nota",
+        "addTask": "Agregar fila de tarea",
+        "deleteTask": "Eliminar esta fila"
+    },
+    "feedback": {
+        "difficulties": "Dificultades o Problemas (Si los hay)",
+        "difficultiesPlaceholder": "Registre cualquier dificultad o problema encontrado al realizar las tareas...",
+        "suggestions": "Sugerencias o Propuestas",
+        "suggestionsPlaceholder": "Proponer soluciones..."
+    },
+    "rating": {
+        "description": "Por favor, informe honestamente, ya que el Departamento utilizará estos datos de autoevaluación como base para su calificación de estrellas.",
+        "excellent": "Excelente",
+        "good": "Bueno",
+        "fair": "Regular",
+        "pass": "Aprobado",
+        "fail": "No Aprobado"
+    },
+    "buttons": {
+        "export": "EXPORTAR ARCHIVO DE INFORME (.DOCX)",
+        "exportLoading": "Generando informe...",
+        "understood": "Entendido"
+    },
+    "modal": {
+        "validationTitle": "Por Favor Revise",
+        "validationMessage": "Debe completar todos los campos obligatorios antes de exportar el informe.",
+        "successTitle": "Archivo Exportado",
+        "successMessage": "Por favor, revise su carpeta de descargas para obtener el archivo generado.",
+        "errorGeneralInfo": "Por favor, complete toda la información en la sección \"Información General\".",
+        "errorTaskList": "Por favor, agregue al menos una tarea con información completa (Nombre de Tarea, Tiempo, Resultado).",
+        "errorPrefix": "Error: ",
+        "errorTemplate": "¡Archivo de plantilla template.docx no encontrado!"
+    },
+    "footer": {
+        "security": "Los datos se procesan directamente en el navegador, garantizando la seguridad"
+    }
+}

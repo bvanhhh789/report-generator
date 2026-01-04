@@ -1,0 +1,84 @@
+{
+    "langName": "日本語",
+    "langCode": "ja",
+    "navbar": {
+        "backLink": "旧インターフェースに戻る",
+        "themeLight": "ダークモード",
+        "themeDark": "ライトモード"
+    },
+    "header": {
+        "title": "活動報告書生成システム",
+        "subtitle": "物流部 - ハノイ技術職業大学青年団支部",
+        "pageTitle": "活動報告書生成システム - 物流部"
+    },
+    "infoBanner": {
+        "title": "使用ガイド",
+        "description": "以下のフォームを使用して活動報告書を素早く作成してください。完了したら、「レポートファイルをエクスポート」ボタンをクリックしてWord (.docx)ファイルをダウンロードしてください。",
+        "point1": "(*)でマークされたフィールドは必須です",
+        "point2": "「タスクリスト」テーブルでは、必要に応じて行を追加または削除できます",
+        "point3": "データはブラウザで直接処理され、セキュリティが保証されます"
+    },
+    "sections": {
+        "section1": "I. 一般情報",
+        "section2": "II. タスクリスト",
+        "section3": "III. フィードバック",
+        "section4": "IV. 自己評価"
+    },
+    "form": {
+        "fullName": "氏名",
+        "fullNamePlaceholder": "例: 山田太郎",
+        "position": "役職",
+        "positionPlaceholder": "例: チームリーダー",
+        "phone": "電話番号",
+        "phonePlaceholder": "09xxxxxxx",
+        "reportDate": "報告日",
+        "reportDatePlaceholder": "dd/mm/yyyy",
+        "activityName": "活動名",
+        "activityNamePlaceholder": "プロジェクトX実施",
+        "activityTime": "活動時間",
+        "activityTimePlaceholder": "例: 午前8:00 - 午後5:00",
+        "location": "場所",
+        "locationPlaceholder": "例: A17ビル Ta Quang Buu",
+        "required": "*"
+    },
+    "tasks": {
+        "taskName": "タスク名",
+        "taskTime": "時間",
+        "taskResult": "結果",
+        "taskNote": "メモ",
+        "addTask": "タスク行を追加",
+        "deleteTask": "この行を削除"
+    },
+    "feedback": {
+        "difficulties": "困難または問題 (ある場合)",
+        "difficultiesPlaceholder": "タスク実行中に発生した困難や問題を記録してください...",
+        "suggestions": "提案や意見",
+        "suggestionsPlaceholder": "解決策を提案してください..."
+    },
+    "rating": {
+        "description": "部門はこの自己評価データを星評価の基準として使用するため、正直に報告してください。",
+        "excellent": "優秀",
+        "good": "良好",
+        "fair": "普通",
+        "pass": "合格",
+        "fail": "不合格"
+    },
+    "buttons": {
+        "export": "レポートファイルをエクスポート (.DOCX)",
+        "exportLoading": "レポートを生成中...",
+        "understood": "了解"
+    },
+    "modal": {
+        "validationTitle": "確認してください",
+        "validationMessage": "レポートをエクスポートする前に、すべての必須フィールドに入力する必要があります。",
+        "successTitle": "ファイルがエクスポートされました",
+        "successMessage": "生成されたファイルはダウンロードフォルダを確認してください。",
+        "errorGeneralInfo": "「一般情報」セクションのすべての情報を入力してください。",
+        "errorTaskList": "完全な情報(タスク名、時間、結果)を含むタスクを少なくとも1つ追加してください。",
+        "errorPrefix": "エラー: ",
+        "errorTemplate": "テンプレートファイル template.docx が見つかりません!"
+    },
+    "footer": {
+        "security": "データはブラウザで直接処理され、セキュリティが保証されます"
+    }
+}
