@@ -66,7 +66,8 @@
     "buttons": {
         "export": "导出报告文件 (.DOCX)",
         "exportLoading": "正在生成报告...",
-        "understood": "明白"
+        "understood": "明白",
+        "loading": "加载中"
     },
     "modal": {
         "validationTitle": "请检查",

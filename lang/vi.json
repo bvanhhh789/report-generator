@@ -66,7 +66,8 @@
   "buttons": {
     "export": "XUẤT FILE BÁO CÁO (.DOCX)",
     "exportLoading": "Đang tạo báo cáo...",
-    "understood": "Đã hiểu"
+    "understood": "Đã hiểu",
+    "loading": "ĐANG TẢI"
   },
   "modal": {
     "validationTitle": "Vui lòng kiểm tra lại",

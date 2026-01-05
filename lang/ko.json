@@ -66,7 +66,8 @@
     "buttons": {
         "export": "보고서 파일 내보내기 (.DOCX)",
         "exportLoading": "보고서 생성 중...",
-        "understood": "확인"
+        "understood": "확인",
+        "loading": "로딩 중"
     },
     "modal": {
         "validationTitle": "확인해 주세요",

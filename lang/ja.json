@@ -66,7 +66,8 @@
     "buttons": {
         "export": "レポートファイルをエクスポート (.DOCX)",
         "exportLoading": "レポートを生成中...",
-        "understood": "了解"
+        "understood": "了解",
+        "loading": "読み込み中"
     },
     "modal": {
         "validationTitle": "確認してください",

@@ -24,6 +24,16 @@
 </head>
 
 <body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-text">
+                <i class="bi bi-file-earmark-text"></i>
+                <span data-i18n="buttons.loading">ĐANG TẢI</span><span class="dots"></span>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating Navigation Bar -->
     <nav class="floating-navbar">
@@ -92,7 +102,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container hidden" id="mainContainer">
         <!-- Header Card -->
         <div class="header-card">
             <h1>
@@ -347,6 +357,23 @@
         updateClock();
         setInterval(updateClock, 1000);
 
+        // === PAGE LOADING ANIMATION ===
+        window.addEventListener('DOMContentLoaded', () => {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const mainContainer = document.getElementById('mainContainer');
+
+            // After 1 second, fade out loading and show container with animation
+            setTimeout(() => {
+                loadingOverlay.classList.add('fade-out');
+
+                // After fade out completes, show container with fadeInUp
+                setTimeout(() => {
+                    mainContainer.classList.remove('hidden');
+                    mainContainer.classList.add('fade-in-up');
+                }, 500); // Wait for overlay fade-out
+            }, 1000); // 1 second loading time
+        });
+
         // === FLATPICKR ===
         flatpickr("#inputDate", {
             dateFormat: "d/m/Y",          // DD/MM/YYYY format
@@ -550,8 +577,16 @@
 
         function closeModal() {
             const modal = document.getElementById('validationModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
+
+            // Add closing animation
+            modal.classList.add('closing');
+
+            // Wait for animation to complete, then remove modal
+            setTimeout(() => {
+                modal.classList.remove('active');
+                modal.classList.remove('closing');
+                document.body.style.overflow = '';
+            }, 300); // Match animation duration
         }
 
         // Close modal on overlay click
