@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap Icons -->
@@ -263,6 +263,22 @@
             </form>
         </div>
 
+        <!-- Counter Card -->
+        <div class="counter-card">
+            <div class="counter-label">
+                <i class="bi bi-graph-up-arrow"></i>
+                <span>Số lượt sử dụng</span>
+            </div>
+            <div class="counter-gradient" id="usageCounter">
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+                <div class="digit">0</div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <p class="footer-text">
             <i class="bi bi-shield-check"></i>
@@ -356,6 +372,91 @@
         // Update clock immediately and then every second
         updateClock();
         setInterval(updateClock, 1000);
+
+        // === COUNTER API ===
+        const COUNTER_API_URL = 'https://report-generator-banhaucan.vuanhsignal.workers.dev';
+        let currentCounter = 0;
+
+        // Fetch counter from API
+        async function fetchCounter() {
+            try {
+                const response = await fetch(COUNTER_API_URL);
+                if (response.ok) {
+                    const data = await response.json();
+                    currentCounter = data.count || 0;
+                    updateCounterDisplay(currentCounter);
+                } else {
+                    console.warn(`API returned status ${response.status}`);
+                    updateCounterDisplay(0);
+                }
+            } catch (error) {
+                // CORS or network error
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    console.warn('⚠️ CORS Error: Cannot fetch counter. Please check CORS_SETUP_README.md for setup instructions.');
+                } else {
+                    console.error('Failed to fetch counter:', error);
+                }
+                // Display 0 on error
+                updateCounterDisplay(0);
+            }
+        }
+
+        // Update counter display
+        function updateCounterDisplay(value) {
+            const paddedValue = String(value).padStart(6, '0').slice(-6);
+            const digits = paddedValue.split('');
+
+            const counter = document.getElementById('usageCounter');
+            if (counter) {
+                const digitElements = counter.querySelectorAll('.digit');
+                digitElements.forEach((element, index) => {
+                    // Add animation
+                    element.style.transform = 'scale(1.2)';
+                    element.style.transition = 'transform 0.2s ease';
+
+                    setTimeout(() => {
+                        element.textContent = digits[index];
+                        element.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            }
+        }
+
+        // Increment counter via API
+        async function incrementCounter() {
+            try {
+                const response = await fetch(COUNTER_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    currentCounter = data.count || currentCounter + 1;
+                    updateCounterDisplay(currentCounter);
+                    console.log('✅ Counter incremented successfully:', currentCounter);
+                } else {
+                    console.warn(`API POST returned status ${response.status}`);
+                    currentCounter++;
+                    updateCounterDisplay(currentCounter);
+                }
+            } catch (error) {
+                // CORS or network error
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    console.warn('⚠️ CORS Error: Cannot increment counter. Please check CORS_SETUP_README.md for setup instructions.');
+                } else {
+                    console.error('Failed to increment counter:', error);
+                }
+                // Optimistically increment locally on error
+                currentCounter++;
+                updateCounterDisplay(currentCounter);
+            }
+        }
+
+        // Fetch counter on page load
+        fetchCounter();
 
         // === PAGE LOADING ANIMATION ===
         window.addEventListener('DOMContentLoaded', () => {
@@ -665,6 +766,9 @@
                     const fileName = `Bao_cao_${cleanName}_${day}${month}${year}.docx`;
 
                     saveAs(blob, fileName);
+
+                    // Increment counter on successful export
+                    incrementCounter();
 
                     // Reset button
                     btn.disabled = false;
