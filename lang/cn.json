@@ -79,6 +79,12 @@
         "errorPrefix": "错误: ",
         "errorTemplate": "未找到模板文件 template.docx!"
     },
+    "instructions": {
+        "title": "使用指南",
+        "step1": "在表单中填写所有必填字段",
+        "step2": "点击导出报告按钮",
+        "step3": "检查下载文件夹以获取生成的报告文件"
+    },
     "footer": {
         "security": "数据直接在浏览器中处理,确保安全"
     }

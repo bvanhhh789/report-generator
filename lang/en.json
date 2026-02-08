@@ -79,6 +79,12 @@
         "errorPrefix": "Error: ",
         "errorTemplate": "Template file template.docx not found!"
     },
+    "instructions": {
+        "title": "User Guide",
+        "step1": "Fill in all required fields in the form",
+        "step2": "Click the Export Report button",
+        "step3": "Check your downloads folder for the generated report file"
+    },
     "footer": {
         "security": "Data is processed directly in the browser, ensuring security"
     }

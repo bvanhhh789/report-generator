@@ -79,6 +79,12 @@
     "errorPrefix": "Lỗi: ",
     "errorTemplate": "Không tìm thấy file template.docx!"
   },
+  "instructions": {
+    "title": "Hướng dẫn sử dụng",
+    "step1": "Điền đầy đủ tất cả nội dung bắt buộc vào biểu mẫu",
+    "step2": "Nhấn nút Xuất file báo cáo",
+    "step3": "Kiểm tra thư mục tải xuống để lấy file báo cáo vừa tạo"
+  },
   "footer": {
     "security": "Dữ liệu được xử lý trực tiếp trên trình duyệt, đảm bảo bảo mật"
   }

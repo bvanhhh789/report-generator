@@ -79,6 +79,12 @@
         "errorPrefix": "Fehler: ",
         "errorTemplate": "Vorlagendatei template.docx nicht gefunden!"
     },
+    "instructions": {
+        "title": "Benutzerhandbuch",
+        "step1": "Füllen Sie alle Pflichtfelder im Formular aus",
+        "step2": "Klicken Sie auf die Schaltfläche Bericht exportieren",
+        "step3": "Überprüfen Sie Ihren Download-Ordner für die generierte Berichtsdatei"
+    },
     "footer": {
         "security": "Daten werden direkt im Browser verarbeitet, um Sicherheit zu gewährleisten"
     }

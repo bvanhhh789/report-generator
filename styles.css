@@ -835,6 +835,134 @@ textarea.form-control {
     color: var(--primary);
 }
 
+/* Instruction Section */
+.instruction-section {
+    margin: 3rem 0 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border);
+}
+
+.instruction-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.step-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, rgba(236, 72, 153, 0.03) 100%);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: visible;
+}
+
+[data-theme="dark"] .step-card {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(236, 72, 153, 0.08) 100%);
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
+    border: 4px solid var(--card-bg);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.step-card:hover .step-number {
+    transform: translateX(-50%) scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-lg);
+}
+
+.step-icon {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .step-icon {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+}
+
+.step-card:hover .step-icon {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+}
+
+.step-icon i {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.step-text {
+    color: var(--text-primary);
+}
+
+.step-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+/* Responsive for instruction steps */
+@media (max-width: 768px) {
+    .instruction-steps {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .step-card {
+        padding: 3rem 1.25rem 1.25rem;
+    }
+    
+    .step-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .step-icon i {
+        font-size: 3rem;
+    }
+}
+
 /* Footer */
 .footer-text {
     text-align: center;

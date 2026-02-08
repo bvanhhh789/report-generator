@@ -79,6 +79,12 @@
         "errorPrefix": "Error: ",
         "errorTemplate": "¡Archivo de plantilla template.docx no encontrado!"
     },
+    "instructions": {
+        "title": "Guía de Usuario",
+        "step1": "Complete todos los campos obligatorios en el formulario",
+        "step2": "Haga clic en el botón Exportar informe",
+        "step3": "Revise su carpeta de descargas para obtener el archivo de informe generado"
+    },
     "footer": {
         "security": "Los datos se procesan directamente en el navegador, garantizando la seguridad"
     }
